@@ -102,7 +102,7 @@ dset4 <-
            variable = paste0(variable, "_average")) %>%
     group_by(subject, activity, variable) %>% 
     summarise(mean_value = mean(value)) %>%
-    spread(key = variable, value = mean_value) ## wide againg
+    spread(key = variable, value = mean_value) ## wide again
 
 ## Gather creates a narrow data set, wich is practical for summarizing,
 ## and spread returns the summarized data set to a wide form. I think
