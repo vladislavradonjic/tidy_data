@@ -3,9 +3,9 @@
 ## Coursera, Johns Hopkins University
 ## Data Science: Foundations Using R
 ##
-## This sript is part of the peer-graded coursework
+## This script is part of the peer-graded coursework
 ##
-## Please conslut readme.md and codebook.md for more information
+## Please consult readme.md and codebook.md for more information
 ##
 ##
 ## Loading libraries
@@ -91,10 +91,16 @@ names(dset3) <- c("subject", "activity", as.character(features_sub$feature_name)
 ## Alternatively, one could view each measurement as a seperate observation.
 ## That would result in a very narrow and long data set. Still, this could be
 ## a practical step.
+##
+## Variable names will be mutated to avoid automatic variable renaming during
+## export via write.table() and to make averages distinct from input variables.
 dset4 <-
     dset3 %>%
     gather(key = "variable", value = "value", -(subject:activity)) %>%  ## narrow
-    group_by(subject, activity, variable) %>%
+    mutate(variable = str_remove_all(variable, fixed("()")),
+           variable = str_replace_all(variable, fixed("-"), "_"),
+           variable = paste0(variable, "_average")) %>%
+    group_by(subject, activity, variable) %>% 
     summarise(mean_value = mean(value)) %>%
     spread(key = variable, value = mean_value) ## wide againg
 
@@ -104,3 +110,8 @@ dset4 <-
 
 ## Final step: Create submition txt file
 write.table(dset4, file = "tidy_data_set.txt", row.names = FALSE)
+
+
+## To view the exported data set:
+tidy_data_set <- read.table("tidy_data_set.txt", header = TRUE)
+View(tidy_data_set)
