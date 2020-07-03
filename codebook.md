@@ -23,3 +23,5 @@ UCI HAR Dataset/features_info.txt .
 
 Each of these variables also has "-average" suffix to denote that they
 have been averaged over subjects and activities.
+
+All these variables are numeric.
