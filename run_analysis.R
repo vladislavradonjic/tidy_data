@@ -101,3 +101,6 @@ dset4 <-
 ## Gather creates a narrow data set, wich is practical for summarizing,
 ## and spread returns the summarized data set to a wide form. I think
 ## that wide form is easier for human consumption.
+
+## Final step: Create submition txt file
+write.table(dset4, file = "tidy_data_set.txt", row.names = FALSE)
