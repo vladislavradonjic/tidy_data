@@ -26,3 +26,9 @@ best to create a local copy of this repository, open it in RStudio, and then run
 tidy_data_set <- read.table("tidy_data_set.txt", header = TRUE)
 View(tidy_data_set)
 ```
+
+The final data set is tidy, in a **wide** form, because I have found it to be
+slightly more readable. I'm not claiming it is generally more readable in the wide
+form, just that it is my preference.
+
+Additional information about the final data set is available in codebook.md.
