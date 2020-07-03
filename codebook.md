@@ -7,10 +7,12 @@ assignment for Getting and Cleaning data course.
 ## Variables
 
 **subject**   int     
+
   Identification code for the subject - person whose activites
   have been measured.
 
 **activity**  factor with 6 levels
+
   Descriptive label of measured activites.
   Levels: "LAYING", "SITTING", "STANDING", "WALKING",  
           "WALKING_DOWNSTAIRS", "WALKING_UPSTAIRS"
